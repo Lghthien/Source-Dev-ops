@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/student-management-app
+hooks:
+  AfterInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 600
+      runas: ubuntu
+  ApplicationStart:
+    - location: scripts/start_all.sh
+      timeout: 900
+      runas: ubuntu
